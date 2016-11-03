@@ -1,0 +1,18 @@
+$def with (cases)
+$var title: Åpne Saker
+
+
+	<table RULES=ROWS>
+		<tr><th>SaksId</th><th>Fornavn</th><th>Etternavn</th><th>Telefon</th><th>Innlevert Dato</th><th>Produkt</th><th>Status</th></tr>
+	$for case in cases:
+		<tr>
+			<td><a href="">$case[0]</a></td>
+			<td>$case[1]</td>
+			<td>$case[2]</td>
+			<td>$case[3]</td>			
+			<td>$case[7] $case[8]</td>
+			<td>$case[5]</td>
+			<td>$case[18]</td>
+		</tr>
+
+	</table>

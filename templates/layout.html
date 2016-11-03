@@ -1,0 +1,67 @@
+$def with (content)
+
+<!DOCTYPE html>
+<html>
+<!--
+//		K-Repairs: A simple retail repairs-desk software
+//		Copyright (C) 2015  Kim Brynjulfsen - kim.brynjulfsen@gmail.com
+//
+-->
+	<head>
+		<title>K-Repairs: $content.title</title>
+		<link href="static/styles.css" rel="stylesheet">
+		<link rel="icon" type="image/png" href="static/k_logo.png">
+		<meta charset="UTF-8">		
+	</head>
+
+	<body>
+
+		<div id="wrapper">
+		
+			
+			<div id="inputs" class="inputs">
+
+				<form method="GET" action="search" id="searchfield">
+
+					<label for="search" class="searchcl">SØK:</label>
+					<input type="text" id="search"  name="search" class="searchcl">
+
+					<input type="submit" id="search-button" class="button" name="searchbtn" value="Søk">
+
+				</form> <!-- end searchfield -->
+
+				<p>Du kan søke på:</p><br>
+				<p>SAKSID - SERIENR - FORNAVN - ETTERNAVN - TELEFON - EPOST</p>
+
+			</div> <!-- end inputs -->
+
+			<br>
+
+			
+
+			<div id="buttons">
+				<a href="/">Åpne Saker</a>
+
+				<a href="new.php">Ny Sak</a>
+
+				<a href="/browse">Bla</a>				
+
+			</div>			
+
+			<div id="opencases" class="results">
+
+
+				$:content
+
+
+
+			</div> <!-- end results -->
+
+		</div> <!-- end wrapper -->
+
+		<p id="copyright">Version 1.1 ----- Copyright &copy;2016 KB   <a href="admin.html">---Admin---</a>
+		<p id="copyright">This software is licenced under the terms of <a href="http://www.gnu.org/licenses/gpl-3.0.html">GPLv3</a></p>
+
+	</body>
+
+</html>
