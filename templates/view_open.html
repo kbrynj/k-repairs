@@ -6,7 +6,7 @@ $var title: Åpne Saker
 		<tr><th>SaksId</th><th>Fornavn</th><th>Etternavn</th><th>Telefon</th><th>Innlevert Dato</th><th>Produkt</th><th>Status</th></tr>
 	$for case in cases:
 		<tr>
-			<td><a href="">$case[0]</a></td>
+			<td><a href="/case?case=$case[0]" target="_blank">$case[0]</a></td>
 			<td>$case[1]</td>
 			<td>$case[2]</td>
 			<td>$case[3]</td>			

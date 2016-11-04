@@ -37,3 +37,23 @@ def drop_vtable():
 	with con:
 		cur = con.cursor()
 		cur.execute("DROP TABLE Search;")
+
+
+def view_print(casenumber):
+	con = sqlite3.connect('database.db')
+	with con:		
+		cur = con.cursor()
+		cur.execute("SELECT * FROM Saker WHERE Id = '{nmbr}';".format(nmbr=casenumber))
+		cnumber = cur.fetchall()
+		for i in cnumber:
+			case_i = i[0]
+			return case_i
+
+
+def view_print_fill(casenumber):
+	con = sqlite3.connect('database.db')
+	with con:		
+		cur = con.cursor()
+		cur.execute("SELECT * FROM Saker WHERE Id = '{nmbr}';".format(nmbr=casenumber))
+		cnumber = cur.fetchall()
+		return cnumber

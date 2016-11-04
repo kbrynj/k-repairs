@@ -1,4 +1,5 @@
-$def with (case)
+$def with (casen, full_case)
+
 
 
 
@@ -6,7 +7,8 @@ $def with (case)
 <html>
 	<head>
 		<title>K-Repairs</title>
-		<link href="styles.css" rel="stylesheet">
+		<link href="static/case.css" rel="stylesheet">
+		<link rel="icon" type="image/png" href="static/k_logo.png">
 		 <meta charset="UTF-8">
 	</head>
 	<body>
@@ -21,7 +23,7 @@ $def with (case)
 					<h1>Reklamasjon / Garanti</h1>
 					<table>
 						<tr>
-						<td>Staples:</td><td class="blue-info">STORENAME</td>
+						<td>STORENAME</td><td class="blue-info">STORENAME</td>
 						<td>Adr.:</td><td class="blue-info">--</td></tr>
 
 						<tr><td>Postnr.:</td><td class="blue-info">--</td>
@@ -35,72 +37,72 @@ $def with (case)
 				</div> <!-- end s-header-info -->
 			</div> <!-- end s-header -->
 
+			$for info in full_case:
 
-
-			<div id="kundeinfo" class="information">			
-				<br>
-				<table>
-					<tr><td class="title">Navn:</td><td class="bk-info">  </td></tr>
-					<tr><td class="title">Telefon:</td><td class="bk-info">  </td></tr>
-					<tr><td class="title">Epost:</td><td class="bk-info">  </td></tr>
-				</table>
-
-				
-				
-
-				<p>Vi gjÃ¸r oppmerksom pÃ¥ at det er kundens ansvar Ã¥ fremlegge kjÃ¸pskvittering dersom han / hun mener apparatet skal reparasjon pÃ¥ garanti og/eller etter kjÃ¸pslovens bestemmelser. Det er leverandÃ¸r/reparatÃ¸r som avgjÃ¸r om det er en garantisak.</p>
-				<br>
-			</div>
-			
-			
-
-			<div id="caseinfo" class="information">
-			
-				<table>
-					<tr><td class="title">Case-Id:</td><td class="bk-info"></td></tr>
-					<tr><td class="title">Innlevert dato:</td><td class="bk-info"></td></tr>
-					<tr><td class="title">Mottatt av:</td><td class="bk-info"></td></tr>
-				</table>
-			</div> <!-- end caseinfo -->
-
-			<div id="produkt" class="information">
-				<table>
-					<tr><td class="title">Produkt:</td><td class="bk-info">produkt</td></tr>
-					<tr><td class="title">Serienr:</td><td class="bk-info">serienr</td></tr>
-					<tr><td class="title">Har kunden tatt backup?:</td><td class="bk-info">backup</td></tr>									
-					<tr><td class="title">MedfÃ¸lgende utstyr:</td><td class="bk-info">utstyr</td></tr>
-				</table>
-				<p><strong>OBS! Data pÃ¥ PC og andre produkter KAN bli slettet. Det er kundens ansvar og ta backup av egne data!</strong></p>
-				
-				<table id="beskrivelse">
-					<tr><td class="title">Feilbeskrivelse:</td><td class="bk-info">feilbeskr</td></tr>
-				</table>
-			</div> <!-- end produkt -->
-
-			<div id="garanti" class="information">
-				<table>
-					<tr><td>KjÃ¸psdato:</td><td>Garanti?:</td><td>Reklamasjonsrett?:</td><td>Bongnummer:</td></tr>
-					<tr><td>kjdato</td><td class="bk-info">garanti</td><td class="bk-info">bong<td class="bk-info"></td></tr>	
-				</table>
-			</div> <!-- end garanti -->
-
-			<div id="disclaimer" class="information">
-				<br>
-				<p id="disc" class="red">Feil som skyldes konflikter grunnet programvarer som er installert eller virus, samt ytre pÃ¥virkninger dekkes ikke av garanti/reklamasjon. Eier vil i slike tilfeller vÃ¦re ansvarlig for de undersÃ¸kelse, frakt, forsendelse og eventuelle reparasjonskostnader som pÃ¥lÃ¸per. I de tilfeller der verksted ikke finner noen feil kan eier belastes for undersÃ¸kelse og frakt. !BEDRIFT! forbeholder seg retten til Ã¥ beholde produktet inntil slikt oppgjÃ¸r har funnet sted. Frist innen 3 mnd fra kunden er informert.</p>
-				<br>
-				<p class="red">Kunden bekrefter herved med signatur at han/hun har lest betingelsene.</p>
-				<table>
-					<tr><td class="title" id="redsign">Kunde Signatur:</td><td class="bk-info"></td></tr>								
-				</table>
-				
-				<div id="utlevert">
-					<p>Produkt utlevert:</p>
+				<div id="kundeinfo" class="information">			
+					<br>
 					<table>
-						<tr><td class="title">Dato:</td><td class="bk-info"></td></tr>
-						<tr><td class="title">Kunde Signatur:</td><td class="bk-info"></td></tr>
+						<tr><td class="title">Navn:</td><td class="bk-info"> $info[1] $info[2] </td></tr>
+						<tr><td class="title">Telefon:</td><td class="bk-info"> $info[3] </td></tr>
+						<tr><td class="title">Epost:</td><td class="bk-info"> $info[4] </td></tr>
 					</table>
-				</div> <!-- end utlevert -->
-			</div> <!-- end disclaimer -->
+
+					
+					
+
+					<p>Vi gjør oppmerksom på at det er kundens ansvar å fremlegge kjøpskvittering dersom han / hun mener apparatet skal reparasjon på garanti og/eller etter kjøpslovens bestemmelser. Det er leverandør/reparatør som avgjør om det er en garantisak.</p>
+					<br>
+				</div>
+				
+				
+
+				<div id="caseinfo" class="information">
+				
+					<table>
+						<tr><td class="title">Case-Id:</td><td class="bk-info">$info[0]</td></tr>
+						<tr><td class="title">Innlevert dato:</td><td class="bk-info">$info[5]</td></tr>
+						<tr><td class="title">Mottatt av:</td><td class="bk-info">$info[17]</td></tr>
+					</table>
+				</div> <!-- end caseinfo -->
+
+				<div id="produkt" class="information">
+					<table>
+						<tr><td class="title">Produkt:</td><td class="bk-info">$info[7] $info[8]</td></tr>
+						<tr><td class="title">Serienr:</td><td class="bk-info">$info[9]</td></tr>
+						<tr><td class="title">Har kunden tatt backup?:</td><td class="bk-info">$info[13]</td></tr>									
+						<tr><td class="title">Medfølgende utstyr:</td><td class="bk-info">$info[12]</td></tr>
+					</table>
+					<p><strong>OBS! Data på PC og andre produkter KAN bli slettet. Det er kundens ansvar og ta backup av egne data!</strong></p>
+					
+					<table id="beskrivelse">
+						<tr><td class="title">Feilbeskrivelse:</td><td class="bk-info">$info[14]</td></tr>
+					</table>
+				</div> <!-- end produkt -->
+
+				<div id="garanti" class="information">
+					<table>
+						<tr><td>Kjøpsdato:</td><td>Garanti?:</td><td>Reklamasjonsrett?:</td><td>Bongnummer:</td></tr>
+						<tr><td>$info[10]</td><td class="bk-info">$info[15]</td><td class="bk-info">$info[16]<td class="bk-info">$info[11]</td></tr>	
+					</table>
+				</div> <!-- end garanti -->
+
+				<div id="disclaimer" class="information">
+					<br>
+					<p id="disc" class="red">Feil som skyldes konflikter grunnet programvarer som er installert eller virus, samt ytre påvirkninger dekkes ikke av garanti/reklamasjon. Eier vil i slike tilfeller være ansvarlig for de undersøkelse, frakt, forsendelse og eventuelle reparasjonskostnader som påløper. I de tilfeller der verksted ikke finner noen feil kan eier belastes for undersøkelse og frakt. !BEDRIFT! forbeholder seg retten til å beholde produktet inntil slikt oppgjør har funnet sted. Frist innen 3 mnd fra kunden er informert.</p>
+					<br>
+					<p class="red">Kunden bekrefter herved med signatur at han/hun har lest betingelsene.</p>
+					<table>
+						<tr><td class="title" id="redsign">Kunde Signatur:</td><td class="bk-info"></td></tr>								
+					</table>
+					
+					<div id="utlevert">
+						<p>Produkt utlevert:</p>
+						<table>
+							<tr><td class="title">Dato:</td><td class="bk-info"></td></tr>
+							<tr><td class="title">Kunde Signatur:</td><td class="bk-info"></td></tr>
+						</table>
+					</div> <!-- end utlevert -->
+				</div> <!-- end disclaimer -->
 			
 
 

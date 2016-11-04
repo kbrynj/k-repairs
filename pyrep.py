@@ -6,6 +6,7 @@ urls = (
 	'/', 'Index',
 	'/browse', 'browsecases',
 	'/search(.*)', 'search',
+	'/case(.*)', 'case',
 	
 )
 
@@ -13,6 +14,7 @@ urls = (
 app = web.application(urls, globals())
 
 render = web.template.render('templates/', base='layout')
+case_render = web.template.render('templates/')
 
 class Index(object):
 	def GET(self):
@@ -32,6 +34,14 @@ class search(object):
 		result = model.searchs(string.search)
 		return render.view_results(result)
 		model.drop_vtable()
+
+class case(object):
+	def GET(self, case):
+		case_n = web.input()
+		casen = model.view_print(case_n.case)
+		full_case = model.view_print_fill(case_n.case)
+		return case_render.view_case(casen, full_case)
+
 
 
 
