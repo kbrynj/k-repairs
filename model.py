@@ -1,5 +1,5 @@
 import web
-import datetime
+import time
 import sqlite3
 
 
@@ -57,3 +57,5 @@ def view_print_fill(casenumber):
 		cur.execute("SELECT * FROM Saker WHERE Id = '{nmbr}';".format(nmbr=casenumber))
 		cnumber = cur.fetchall()
 		return cnumber
+
+

@@ -1,5 +1,6 @@
 import web
 import model
+import time
 
 
 urls = (
@@ -7,11 +8,14 @@ urls = (
 	'/browse', 'browsecases',
 	'/search(.*)', 'search',
 	'/case(.*)', 'case',
+	'/new', 'new',
 	
 )
 
 
 app = web.application(urls, globals())
+
+db = web.database(dbn='sqlite', db='database.db')
 
 render = web.template.render('templates/', base='layout')
 case_render = web.template.render('templates/')
@@ -42,6 +46,15 @@ class case(object):
 		full_case = model.view_print_fill(case_n.case)
 		return case_render.view_case(casen, full_case)
 
+class new(object):
+	def GET(self):
+		today = time.strftime("%d.%m.%Y")
+		return render.new(today)
+
+	def POST(self):
+		i = web.input()
+		n = db.insert('Saker', Fornavn=i.fornavn, Etternavn=i.etternavn, Telefon=i.telefon, Epost=i.email, dato_inn=i.dato_inn, Merke=i.merke, Modell=i.modell, Serienr=i.serienr, Utstyr=i.utstyr, Backup=i.backup, Feilbeskrivelse=i.feilbeskrivelse, Kjøpsdato=i.kjøpsdato, Bongnr=i.bongnr, Garanti=i.garanti, Reklamasjon=i.reklamasjon, mottatt_av=i.mottatt_av, open='Åpen')
+		raise web.seeother('/')
 
 
 

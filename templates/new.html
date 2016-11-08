@@ -1,0 +1,134 @@
+$def with (today)
+$var title: Ny Sak
+$var style: static/case.css
+
+				<div id="newCase" class="results">
+					
+					<h2>REGISTRER NY SAK:</h2>
+					<h3>* = PÅKREVD FELT</h3>
+
+					<br>
+
+					<form method="post" action="new" id="newForm">
+
+					1
+
+					<h3>KUNDE:</h3>
+
+					<table>
+						<tr>
+							<td><label for="fornavn" >Fornavn: *</label></td>
+							<td><input type="text" id="fornavn"  name="fornavn"></td>
+						</tr>
+
+						<tr>					
+							<td><label for="etternavn" >Etternavn: *</label></td>
+							<td><input type="text" id="etternavn"  name="etternavn"></td>
+						</tr>
+
+						<tr>
+							<td><label for="telefon" >Telefon: *</label></td>
+							<td><input type="text" id="telefon"  name="telefon"></td>
+						</tr>
+							
+						<tr>
+							<td><label for="email" >Epost:</label></td>
+							<td><input type="email" id="email"  name="email"></td>
+						</tr>
+
+						<br>
+
+						<tr>
+							<td><label for="dato_inn" >Innlevert Dato(dd.mm.yyyy): *</label></td>
+							<td><input type="text" id="dato_inn"  name="dato_inn" value="$today"></td>
+						</tr>
+						
+					</table>
+
+					<br>
+					<br>
+					<br>
+
+					<h3>PRODUKT:</h3>
+					<br>
+
+					<table>
+						<tr>
+							<td><label for="merke" >Produsent:</label></td>
+							<td><input type="text" id="merke"  name="merke"></td>
+						</tr>
+
+						<tr>
+							<td><label for="modell" >Modell:</label></td>
+							<td><input type="text" id="modell"  name="modell"></td>
+						</tr>
+
+						<tr>
+							<td><label for="serienr" >Serienummer:</label></td>
+							<td><input type="text" id="serienr"  name="serienr"></td>
+						</tr>
+
+						<tr>
+							<td><label for="utstyr" >Medfølgende Utstyr:</label></td>
+							<td><input type="text" id="utstyr"  name="utstyr"></td>
+						</tr>
+
+						<tr>
+							<td><label for="backup" >Tatt Backup?:</label></td>
+							<td><input type="text" id="backup"  name="backup"></td>
+						</tr>
+
+						<tr>
+							<td><label for="feilbeskrivelse" >Feilbeskrivelse:</label></td>
+							<td><textarea type="feilbeskrivelse" id="feilbeskrivelse"  name="feilbeskrivelse" maxlength="120" ></textarea></td>
+						</tr>
+
+					</table>
+					
+
+					<br>
+					<br>
+					<br>
+
+					<h3>INFO:</h3>
+					<br>
+
+					<table>
+						<tr>
+							<td><label for="kjøpsdato" >Kjøpsdato(dd.mm.yyyy):</label></td>
+							<td><input type="text" id="kjøpsdato"  name="kjøpsdato"></td>
+						</tr>
+
+						<tr>
+							<td><label for="bongnr" >Bongnummer: *</label></td>
+							<td><input type="text" id="bongnr"  name="bongnr"></td>
+						</tr>
+
+						<tr>
+							<td><label for="garanti" >Garanti?(ja/nei):</label></td>
+							<td><input type="text" id="garanti"  name="garanti"></td>
+						</tr>
+
+						<tr>
+							<td><label for="reklamasjon" >Reklamasjon?(ja/nei):</label></td>
+							<td><input type="text" id="reklamasjon"  name="reklamasjon"></td>
+						</tr>
+
+						<tr>
+							<td><label for="mottatt_av" >Mottatt av (ansatt): *</label></td>
+							<td><input type="text" id="mottatt_av"  name="mottatt_av"></td>							
+						</tr>
+
+					</table>
+					
+
+					<br>
+					<br>
+					<br>
+
+					
+					<input type="submit" id="new-button" class="button" name="newCase-submit" value="LAGRE">
+
+					</form>					
+
+				</div> <!-- end newCase -->
