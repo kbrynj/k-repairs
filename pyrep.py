@@ -9,7 +9,8 @@ urls = (
 	'/search(.*)', 'search',
 	'/case(.*)', 'case',
 	'/new', 'new',
-	
+	'/open', 'change_open',
+	'/close', 'change_close',	
 )
 
 
@@ -54,6 +55,19 @@ class new(object):
 	def POST(self):
 		i = web.input()
 		n = db.insert('Saker', Fornavn=i.fornavn, Etternavn=i.etternavn, Telefon=i.telefon, Epost=i.email, dato_inn=i.dato_inn, Merke=i.merke, Modell=i.modell, Serienr=i.serienr, Utstyr=i.utstyr, Backup=i.backup, Feilbeskrivelse=i.feilbeskrivelse, Kjøpsdato=i.kjøpsdato, Bongnr=i.bongnr, Garanti=i.garanti, Reklamasjon=i.reklamasjon, mottatt_av=i.mottatt_av, open='Åpen')
+		raise web.seeother('/')
+
+class change_close(object):
+	def GET(case):
+		i = web.input()
+		today = time.strftime("%d.%m.%Y")
+		c = db.update('Saker', where="Id=$i.case", vars=locals(), open="Stengt", dato_ferdig=today)
+		raise web.seeother('/browse')
+
+class change_open(object):
+	def GET(case):
+		i = web.input()
+		c = db.update('Saker', where="Id=$i.case", vars=locals(), open="Åpen")
 		raise web.seeother('/')
 
 

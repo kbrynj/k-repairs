@@ -162,6 +162,17 @@ td a {
 	text-decoration: none;
 }
 
+.button {
+	width: 50px;
+	padding: 0px;
+	border: 1px solid black;
+	margin: 5px;
+	background: grey;
+	border-radius: 4px;
+	color: black;
+	text-decoration: none;
+}
+
 #modell {
 	width: 200px;
 }

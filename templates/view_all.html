@@ -16,9 +16,9 @@ $var style: static/styles.css
 			<td>$case[6]</td>
 			<td>$case[18]</td>
 			$if case[18] == "Åpen":
-				<td><a href="">Steng</a><a href="">Endre</a></td>
+				<td><a href="/close?case=$case[0]">Steng</a><a href="">Endre</a></td>
 			$else:
-				<td><a href="">Åpne</a><a href="">Endre</a></td>
+				<td><a href="/open?case=$case[0]">Åpne</a><a href="">Endre</a></td>
 			
 		</tr>
 
